@@ -6,16 +6,16 @@ abstract class ApiConfig {
 
 class DevApiConfig extends ApiConfig {
   @override
-  String get repoBaseUrl => 'https://api.github.com/';
+  String get repoBaseUrl => 'https://rickandmortyapi.com/api/';
 
   @override
-  String get issueBaseUrl => 'https://api.github.com/';
+  String get issueBaseUrl => 'https://rickandmortyapi.com/api/';
 }
 
 class ProdApiConfig extends ApiConfig {
   @override
-  String get repoBaseUrl => 'https://api.github.com/';
+  String get repoBaseUrl => 'https://rickandmortyapi.com/api/';
 
   @override
-  String get issueBaseUrl => 'https://api.github.com/';
+  String get issueBaseUrl => 'https://rickandmortyapi.com/api/';
 }
