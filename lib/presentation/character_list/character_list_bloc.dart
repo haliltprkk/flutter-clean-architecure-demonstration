@@ -30,7 +30,7 @@ class CharacterListBloc extends Cubit<CharacterListState> {
     try {
       final characterList = await _characterListRepository.getCharacters();
       emit(state.copyWith(stateType: StateType.success, characterList: characterList));
-    } on DioError catch (e) {
+    } catch (e) {
       emit(state.copyWith(stateType: StateType.error, message: e.handleError()));
     }
   }
