@@ -1,4 +1,4 @@
-import 'package:clean_architecture_demonstration/domain/orientation_service.dart';
+import 'package:clean_architecture_demonstration/domain/common/orientation_service.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../data/services_impl/default_orientation_service.dart';

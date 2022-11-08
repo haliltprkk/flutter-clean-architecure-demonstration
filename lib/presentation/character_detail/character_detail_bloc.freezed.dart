@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CharacterDetailState {
   CharacterModel? get character => throw _privateConstructorUsedError;
   StateType get stateType => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CharacterDetailStateCopyWith<CharacterDetailState> get copyWith =>
@@ -30,7 +31,7 @@ abstract class $CharacterDetailStateCopyWith<$Res> {
           $Res Function(CharacterDetailState) then) =
       _$CharacterDetailStateCopyWithImpl<$Res, CharacterDetailState>;
   @useResult
-  $Res call({CharacterModel? character, StateType stateType});
+  $Res call({CharacterModel? character, StateType stateType, String message});
 
   $CharacterModelCopyWith<$Res>? get character;
 }
@@ -51,6 +52,7 @@ class _$CharacterDetailStateCopyWithImpl<$Res,
   $Res call({
     Object? character = freezed,
     Object? stateType = null,
+    Object? message = null,
   }) {
     return _then(_value.copyWith(
       character: freezed == character
@@ -61,6 +63,10 @@ class _$CharacterDetailStateCopyWithImpl<$Res,
           ? _value.stateType
           : stateType // ignore: cast_nullable_to_non_nullable
               as StateType,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -85,7 +91,7 @@ abstract class _$$_CharacterDetailStateCopyWith<$Res>
       __$$_CharacterDetailStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CharacterModel? character, StateType stateType});
+  $Res call({CharacterModel? character, StateType stateType, String message});
 
   @override
   $CharacterModelCopyWith<$Res>? get character;
@@ -104,6 +110,7 @@ class __$$_CharacterDetailStateCopyWithImpl<$Res>
   $Res call({
     Object? character = freezed,
     Object? stateType = null,
+    Object? message = null,
   }) {
     return _then(_$_CharacterDetailState(
       character: freezed == character
@@ -114,6 +121,10 @@ class __$$_CharacterDetailStateCopyWithImpl<$Res>
           ? _value.stateType
           : stateType // ignore: cast_nullable_to_non_nullable
               as StateType,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -122,16 +133,19 @@ class __$$_CharacterDetailStateCopyWithImpl<$Res>
 
 class _$_CharacterDetailState implements _CharacterDetailState {
   const _$_CharacterDetailState(
-      {required this.character, required this.stateType});
+      {required this.character, required this.stateType, this.message = ""});
 
   @override
   final CharacterModel? character;
   @override
   final StateType stateType;
+  @override
+  @JsonKey()
+  final String message;
 
   @override
   String toString() {
-    return 'CharacterDetailState(character: $character, stateType: $stateType)';
+    return 'CharacterDetailState(character: $character, stateType: $stateType, message: $message)';
   }
 
   @override
@@ -142,11 +156,12 @@ class _$_CharacterDetailState implements _CharacterDetailState {
             (identical(other.character, character) ||
                 other.character == character) &&
             (identical(other.stateType, stateType) ||
-                other.stateType == stateType));
+                other.stateType == stateType) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, character, stateType);
+  int get hashCode => Object.hash(runtimeType, character, stateType, message);
 
   @JsonKey(ignore: true)
   @override
@@ -159,12 +174,15 @@ class _$_CharacterDetailState implements _CharacterDetailState {
 abstract class _CharacterDetailState implements CharacterDetailState {
   const factory _CharacterDetailState(
       {required final CharacterModel? character,
-      required final StateType stateType}) = _$_CharacterDetailState;
+      required final StateType stateType,
+      final String message}) = _$_CharacterDetailState;
 
   @override
   CharacterModel? get character;
   @override
   StateType get stateType;
+  @override
+  String get message;
   @override
   @JsonKey(ignore: true)
   _$$_CharacterDetailStateCopyWith<_$_CharacterDetailState> get copyWith =>

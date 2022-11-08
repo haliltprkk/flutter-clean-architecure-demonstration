@@ -20,7 +20,7 @@ import '../../data/character_list/repository/character_list_repository_impl.dart
 import '../../data/services_impl/default_orientation_service.dart' as _i14;
 import '../../domain/character_detail/character_detail_repository.dart' as _i7;
 import '../../domain/character_list/character_list_repository.dart' as _i9;
-import '../../domain/orientation_service.dart' as _i4;
+import '../../domain/common/orientation_service.dart' as _i4;
 import '../../presentation/character_detail/character_detail_bloc.dart' as _i10;
 import '../../presentation/character_list/character_list_bloc.dart' as _i11;
 import '../api_config.dart' as _i6;

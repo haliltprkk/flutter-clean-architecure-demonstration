@@ -1,4 +1,6 @@
 import 'package:clean_architecture_demonstration/domain/character_list/character_list_repository.dart';
+import 'package:clean_architecture_demonstration/presentation/utils/error_handler.dart';
+import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../domain/character_list/character_model.dart';
 import '../utils/bloc_common.dart';
@@ -11,6 +13,7 @@ class CharacterListState with _$CharacterListState {
   const factory CharacterListState({
     required List<CharacterModel> characterList,
     required StateType stateType,
+    @Default("") String message,
   }) = _CharacterListState;
 }
 
@@ -27,8 +30,8 @@ class CharacterListBloc extends Cubit<CharacterListState> {
     try {
       final characterList = await _repoCharacterList.getCharacters();
       emit(state.copyWith(stateType: StateType.success, characterList: characterList));
-    } catch (e) {
-      emit(state.copyWith(stateType: StateType.error));
+    } on DioError catch (e) {
+      emit(state.copyWith(stateType: StateType.error, message: e.handleError()));
     }
   }
 

@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CharacterListState {
   List<CharacterModel> get characterList => throw _privateConstructorUsedError;
   StateType get stateType => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CharacterListStateCopyWith<CharacterListState> get copyWith =>
@@ -30,7 +31,10 @@ abstract class $CharacterListStateCopyWith<$Res> {
           CharacterListState value, $Res Function(CharacterListState) then) =
       _$CharacterListStateCopyWithImpl<$Res, CharacterListState>;
   @useResult
-  $Res call({List<CharacterModel> characterList, StateType stateType});
+  $Res call(
+      {List<CharacterModel> characterList,
+      StateType stateType,
+      String message});
 }
 
 /// @nodoc
@@ -48,6 +52,7 @@ class _$CharacterListStateCopyWithImpl<$Res, $Val extends CharacterListState>
   $Res call({
     Object? characterList = null,
     Object? stateType = null,
+    Object? message = null,
   }) {
     return _then(_value.copyWith(
       characterList: null == characterList
@@ -58,6 +63,10 @@ class _$CharacterListStateCopyWithImpl<$Res, $Val extends CharacterListState>
           ? _value.stateType
           : stateType // ignore: cast_nullable_to_non_nullable
               as StateType,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -70,7 +79,10 @@ abstract class _$$_CharacterListStateCopyWith<$Res>
       __$$_CharacterListStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<CharacterModel> characterList, StateType stateType});
+  $Res call(
+      {List<CharacterModel> characterList,
+      StateType stateType,
+      String message});
 }
 
 /// @nodoc
@@ -86,6 +98,7 @@ class __$$_CharacterListStateCopyWithImpl<$Res>
   $Res call({
     Object? characterList = null,
     Object? stateType = null,
+    Object? message = null,
   }) {
     return _then(_$_CharacterListState(
       characterList: null == characterList
@@ -96,6 +109,10 @@ class __$$_CharacterListStateCopyWithImpl<$Res>
           ? _value.stateType
           : stateType // ignore: cast_nullable_to_non_nullable
               as StateType,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -105,7 +122,8 @@ class __$$_CharacterListStateCopyWithImpl<$Res>
 class _$_CharacterListState implements _CharacterListState {
   const _$_CharacterListState(
       {required final List<CharacterModel> characterList,
-      required this.stateType})
+      required this.stateType,
+      this.message = ""})
       : _characterList = characterList;
 
   final List<CharacterModel> _characterList;
@@ -117,10 +135,13 @@ class _$_CharacterListState implements _CharacterListState {
 
   @override
   final StateType stateType;
+  @override
+  @JsonKey()
+  final String message;
 
   @override
   String toString() {
-    return 'CharacterListState(characterList: $characterList, stateType: $stateType)';
+    return 'CharacterListState(characterList: $characterList, stateType: $stateType, message: $message)';
   }
 
   @override
@@ -131,12 +152,13 @@ class _$_CharacterListState implements _CharacterListState {
             const DeepCollectionEquality()
                 .equals(other._characterList, _characterList) &&
             (identical(other.stateType, stateType) ||
-                other.stateType == stateType));
+                other.stateType == stateType) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_characterList), stateType);
+      const DeepCollectionEquality().hash(_characterList), stateType, message);
 
   @JsonKey(ignore: true)
   @override
@@ -149,12 +171,15 @@ class _$_CharacterListState implements _CharacterListState {
 abstract class _CharacterListState implements CharacterListState {
   const factory _CharacterListState(
       {required final List<CharacterModel> characterList,
-      required final StateType stateType}) = _$_CharacterListState;
+      required final StateType stateType,
+      final String message}) = _$_CharacterListState;
 
   @override
   List<CharacterModel> get characterList;
   @override
   StateType get stateType;
+  @override
+  String get message;
   @override
   @JsonKey(ignore: true)
   _$$_CharacterListStateCopyWith<_$_CharacterListState> get copyWith =>

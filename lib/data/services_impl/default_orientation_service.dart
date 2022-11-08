@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 
-import '../../domain/orientation_service.dart';
+import '../../domain/common/orientation_service.dart';
 
 class DefaultOrientationService implements OrientationService {
   @override

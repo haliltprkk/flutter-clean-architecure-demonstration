@@ -3,7 +3,7 @@ import 'package:clean_architecture_demonstration/config/di/di.dart';
 import 'package:clean_architecture_demonstration/presentation/app.dart';
 import 'package:flutter/material.dart';
 
-import 'domain/orientation_service.dart';
+import 'domain/common/orientation_service.dart';
 
 Future<void> runMain(ApiConfig apiConfig) async {
   WidgetsFlutterBinding.ensureInitialized();

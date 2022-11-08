@@ -43,7 +43,7 @@ class CharacterListPage extends StatelessWidget {
         case StateType.success:
           return _buildSuccessBody(context, state);
         case StateType.error:
-          return EmptyBody("An error occurred");
+          return EmptyBody(state.message);
       }
     });
   }
