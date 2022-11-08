@@ -1,3 +1,4 @@
+import 'package:clean_architecture_demonstration/data/character_detail/api_service/character_detail_api_service.dart';
 import 'package:clean_architecture_demonstration/data/character_list/api_service/character_list_api_service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -15,6 +16,10 @@ abstract class NetworkingModule {
     ]);
 
   @lazySingleton
-  CharacterListApiService getApiRestRepoDao(Dio dio, ApiConfig appConfig) =>
-      CharacterListApiService(dio, baseUrl: appConfig.repoBaseUrl);
+  CharacterListApiService getCharacterListApiService(Dio dio, ApiConfig appConfig) =>
+      CharacterListApiService(dio, baseUrl: appConfig.baseUrl);
+
+  @lazySingleton
+  CharacterDetailApiService getCharacterDetailApiService(Dio dio, ApiConfig appConfig) =>
+      CharacterDetailApiService(dio, baseUrl: appConfig.baseUrl);
 }

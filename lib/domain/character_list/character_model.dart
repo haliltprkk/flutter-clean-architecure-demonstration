@@ -1,9 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../presentation/utils/custom_colors.dart';
+
 part 'character_model.freezed.dart';
 
 @freezed
 class CharacterModel with _$CharacterModel {
+  const CharacterModel._();
+
   const factory CharacterModel({
     required int id,
     required String name,
@@ -17,4 +21,18 @@ class CharacterModel with _$CharacterModel {
     required String origin,
     required String location,
   }) = _CharacterModel;
+
+  String getStatusAndSpecies() {
+    return "${status} - ${species}";
+  }
+
+  getStatusColor() {
+    if (status == "Alive") {
+      return CustomColors.apple;
+    } else if (status == "Dead") {
+      return CustomColors.valencia;
+    } else {
+      return CustomColors.shark;
+    }
+  }
 }

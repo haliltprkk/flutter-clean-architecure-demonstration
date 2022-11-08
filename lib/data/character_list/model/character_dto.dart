@@ -38,6 +38,6 @@ extension Mapper on CharacterDto {
       status: status,
       type: type,
       url: url,
-      origin: origin.name ?? "unknown",
-      location: location.name ?? "unknown");
+      origin: origin.name,
+      location: location.name);
 }

@@ -22,7 +22,7 @@ mixin _$CharacterModel {
   String get gender => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   String get species => throw _privateConstructorUsedError;
-    String get status => throw _privateConstructorUsedError;
+  String get status => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   String get origin => throw _privateConstructorUsedError;
@@ -223,7 +223,7 @@ class __$$_CharacterModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CharacterModel implements _CharacterModel {
+class _$_CharacterModel extends _CharacterModel {
   const _$_CharacterModel(
       {required this.id,
       required this.name,
@@ -235,7 +235,8 @@ class _$_CharacterModel implements _CharacterModel {
       required this.type,
       required this.url,
       required this.origin,
-      required this.location});
+      required this.location})
+      : super._();
 
   @override
   final int id;
@@ -295,7 +296,7 @@ class _$_CharacterModel implements _CharacterModel {
       __$$_CharacterModelCopyWithImpl<_$_CharacterModel>(this, _$identity);
 }
 
-abstract class _CharacterModel implements CharacterModel {
+abstract class _CharacterModel extends CharacterModel {
   const factory _CharacterModel(
       {required final int id,
       required final String name,
@@ -308,6 +309,7 @@ abstract class _CharacterModel implements CharacterModel {
       required final String url,
       required final String origin,
       required final String location}) = _$_CharacterModel;
+  const _CharacterModel._() : super._();
 
   @override
   int get id;
