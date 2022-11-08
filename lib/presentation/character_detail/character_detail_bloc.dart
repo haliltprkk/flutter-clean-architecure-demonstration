@@ -39,7 +39,7 @@ class CharacterDetailBloc extends Cubit<CharacterDetailState> {
     try {
       final response = await _characterDetailRepository.getCharacterById(characterId);
       emit(state.copyWith(stateType: StateType.success, character: response));
-    } on DioError catch (e) {
+    } catch (e) {
       emit(state.copyWith(stateType: StateType.error, message: e.handleError()));
     }
   }
