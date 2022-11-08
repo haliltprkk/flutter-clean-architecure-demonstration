@@ -18,9 +18,9 @@ class CharacterListState with _$CharacterListState {
 }
 
 class CharacterListBloc extends Cubit<CharacterListState> {
-  final CharacterListRepository _repoCharacterList;
+  final CharacterListRepository _characterListRepository;
 
-  CharacterListBloc(this._repoCharacterList)
+  CharacterListBloc(this._characterListRepository)
       : super(const CharacterListState(characterList: [], stateType: StateType.initial));
 
   Future<void> getCharacters() async {
@@ -28,7 +28,7 @@ class CharacterListBloc extends Cubit<CharacterListState> {
       stateType: StateType.loading,
     ));
     try {
-      final characterList = await _repoCharacterList.getCharacters();
+      final characterList = await _characterListRepository.getCharacters();
       emit(state.copyWith(stateType: StateType.success, characterList: characterList));
     } on DioError catch (e) {
       emit(state.copyWith(stateType: StateType.error, message: e.handleError()));
