@@ -1,5 +1,7 @@
 import 'package:clean_architecture_demonstration/config/di/di.dart';
 import 'package:clean_architecture_demonstration/presentation/character_list/character_list_bloc.dart';
+import 'package:clean_architecture_demonstration/presentation/common_widgets/empty_body.dart';
+import 'package:clean_architecture_demonstration/presentation/common_widgets/loading_body.dart';
 import 'package:clean_architecture_demonstration/presentation/utils/bloc_common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,28 +38,16 @@ class CharacterListPage extends StatelessWidget {
         case StateType.initial:
           return _buildInitialBody();
         case StateType.loading:
-          return _buildLoadingBody();
-        case StateType.loaded:
-          return _buildLoadedBody(context, state);
+          return LoadingBody();
+        case StateType.success:
+          return _buildSuccessBody(context, state);
         case StateType.error:
-          return _buildErrorBody();
+          return EmptyBody("An error occurred");
       }
     });
   }
 
-  _buildErrorBody() {
-    return const Expanded(
-        child: Center(
-      child: Text(
-        "An error occurred",
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w400),
-      ),
-    ));
-  }
-
-  _buildLoadedBody(context, CharacterListState state) {
+  _buildSuccessBody(BuildContext context, CharacterListState state) {
     return Expanded(
         child: RefreshIndicator(
       onRefresh: () => context.read<CharacterListBloc>().refreshList(),
@@ -78,17 +68,15 @@ class CharacterListPage extends StatelessWidget {
       ),
     ));
   }
-
-  _buildLoadingBody() {
-    return const Expanded(
-        child: Center(
-      child: CircularProgressIndicator(
-        color: Colors.white,
-      ),
-    ));
-  }
 }
 
 _buildInitialBody() {
-  return SizedBox();
+  return Expanded(
+      child: Center(
+    child: Image.asset(
+      "assets/ic_rick.png",
+      width: 120,
+      height: 120,
+    ),
+  ));
 }
