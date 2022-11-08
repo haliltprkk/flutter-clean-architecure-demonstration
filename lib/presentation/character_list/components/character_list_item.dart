@@ -52,7 +52,7 @@ class CharacterListItem extends StatelessWidget {
                         width: 8,
                         height: 8,
                         decoration: BoxDecoration(
-                            color: CustomColors.valencia, borderRadius: BorderRadius.circular(4)),
+                            color: getStatusColor(), borderRadius: BorderRadius.circular(4)),
                       ),
                       SizedBox(
                         width: 6,
@@ -115,5 +115,15 @@ class CharacterListItem extends StatelessWidget {
 
   String getCharacterStatus() {
     return "${characterModel.status} - ${characterModel.species}";
+  }
+
+  getStatusColor() {
+    if (characterModel.status == "Alive") {
+      return CustomColors.apple;
+    } else if (characterModel.status == "Dead") {
+      return CustomColors.valencia;
+    } else {
+      return CustomColors.shark;
+    }
   }
 }
