@@ -1,4 +1,5 @@
 import 'package:clean_architecture_demonstration/config/di/di.dart';
+import 'package:clean_architecture_demonstration/data/character_list/model/character_dto.dart';
 import 'package:clean_architecture_demonstration/presentation/character_list/character_list_bloc.dart';
 import 'package:clean_architecture_demonstration/presentation/common_widgets/empty_body.dart';
 import 'package:clean_architecture_demonstration/presentation/common_widgets/loading_body.dart';

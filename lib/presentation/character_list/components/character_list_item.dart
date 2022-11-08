@@ -79,7 +79,7 @@ class CharacterListItem extends StatelessWidget {
                         fontWeight: FontWeight.w400),
                   ),
                   Text(
-                    "unknown",
+                    characterModel.location,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style:
@@ -98,7 +98,7 @@ class CharacterListItem extends StatelessWidget {
                         fontWeight: FontWeight.w400),
                   ),
                   Text(
-                    "Pilot",
+                    characterModel.origin,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style:

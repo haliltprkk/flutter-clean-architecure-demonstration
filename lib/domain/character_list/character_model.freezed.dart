@@ -22,9 +22,11 @@ mixin _$CharacterModel {
   String get gender => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   String get species => throw _privateConstructorUsedError;
-  String get status => throw _privateConstructorUsedError;
+    String get status => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
+  String get origin => throw _privateConstructorUsedError;
+  String get location => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CharacterModelCopyWith<CharacterModel> get copyWith =>
@@ -46,7 +48,9 @@ abstract class $CharacterModelCopyWith<$Res> {
       String species,
       String status,
       String type,
-      String url});
+      String url,
+      String origin,
+      String location});
 }
 
 /// @nodoc
@@ -71,6 +75,8 @@ class _$CharacterModelCopyWithImpl<$Res, $Val extends CharacterModel>
     Object? status = null,
     Object? type = null,
     Object? url = null,
+    Object? origin = null,
+    Object? location = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -109,6 +115,14 @@ class _$CharacterModelCopyWithImpl<$Res, $Val extends CharacterModel>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      origin: null == origin
+          ? _value.origin
+          : origin // ignore: cast_nullable_to_non_nullable
+              as String,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -130,7 +144,9 @@ abstract class _$$_CharacterModelCopyWith<$Res>
       String species,
       String status,
       String type,
-      String url});
+      String url,
+      String origin,
+      String location});
 }
 
 /// @nodoc
@@ -153,6 +169,8 @@ class __$$_CharacterModelCopyWithImpl<$Res>
     Object? status = null,
     Object? type = null,
     Object? url = null,
+    Object? origin = null,
+    Object? location = null,
   }) {
     return _then(_$_CharacterModel(
       id: null == id
@@ -191,6 +209,14 @@ class __$$_CharacterModelCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      origin: null == origin
+          ? _value.origin
+          : origin // ignore: cast_nullable_to_non_nullable
+              as String,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -207,7 +233,9 @@ class _$_CharacterModel implements _CharacterModel {
       required this.species,
       required this.status,
       required this.type,
-      required this.url});
+      required this.url,
+      required this.origin,
+      required this.location});
 
   @override
   final int id;
@@ -227,10 +255,14 @@ class _$_CharacterModel implements _CharacterModel {
   final String type;
   @override
   final String url;
+  @override
+  final String origin;
+  @override
+  final String location;
 
   @override
   String toString() {
-    return 'CharacterModel(id: $id, name: $name, created: $created, gender: $gender, image: $image, species: $species, status: $status, type: $type, url: $url)';
+    return 'CharacterModel(id: $id, name: $name, created: $created, gender: $gender, image: $image, species: $species, status: $status, type: $type, url: $url, origin: $origin, location: $location)';
   }
 
   @override
@@ -246,12 +278,15 @@ class _$_CharacterModel implements _CharacterModel {
             (identical(other.species, species) || other.species == species) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.url, url) || other.url == url));
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.origin, origin) || other.origin == origin) &&
+            (identical(other.location, location) ||
+                other.location == location));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id, name, created, gender, image,
-      species, status, type, url);
+      species, status, type, url, origin, location);
 
   @JsonKey(ignore: true)
   @override
@@ -270,7 +305,9 @@ abstract class _CharacterModel implements CharacterModel {
       required final String species,
       required final String status,
       required final String type,
-      required final String url}) = _$_CharacterModel;
+      required final String url,
+      required final String origin,
+      required final String location}) = _$_CharacterModel;
 
   @override
   int get id;
@@ -290,6 +327,10 @@ abstract class _CharacterModel implements CharacterModel {
   String get type;
   @override
   String get url;
+  @override
+  String get origin;
+  @override
+  String get location;
   @override
   @JsonKey(ignore: true)
   _$$_CharacterModelCopyWith<_$_CharacterModel> get copyWith =>

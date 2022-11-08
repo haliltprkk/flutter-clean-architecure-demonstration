@@ -1,6 +1,8 @@
 import 'package:clean_architecture_demonstration/domain/character_list/character_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'location_dto.dart';
+
 part 'character_dto.freezed.dart';
 
 part 'character_dto.g.dart';
@@ -18,6 +20,8 @@ class CharacterDto with _$CharacterDto {
     @JsonKey(name: 'image') required String image,
     @JsonKey(name: 'created') required String created,
     @JsonKey(name: 'url') required String url,
+    @JsonKey(name: 'origin') required LocationDto origin,
+    @JsonKey(name: 'location') required LocationDto location,
   }) = _CharacterDto;
 
   factory CharacterDto.fromJson(Map<String, dynamic> json) => _$CharacterDtoFromJson(json);
@@ -26,12 +30,14 @@ class CharacterDto with _$CharacterDto {
 extension Mapper on CharacterDto {
   CharacterModel toDomain() => CharacterModel(
       id: id,
-      name:name,
+      name: name,
       created: created,
       gender: gender,
       image: image,
       species: species,
       status: status,
       type: type,
-      url: url);
+      url: url,
+      origin: origin.name ?? "unknown",
+      location: location.name ?? "unknown");
 }

@@ -38,6 +38,10 @@ mixin _$CharacterDto {
   String get created => throw _privateConstructorUsedError;
   @JsonKey(name: 'url')
   String get url => throw _privateConstructorUsedError;
+  @JsonKey(name: 'origin')
+  LocationDto get origin => throw _privateConstructorUsedError;
+  @JsonKey(name: 'location')
+  LocationDto get location => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -60,7 +64,12 @@ abstract class $CharacterDtoCopyWith<$Res> {
       @JsonKey(name: 'gender') String gender,
       @JsonKey(name: 'image') String image,
       @JsonKey(name: 'created') String created,
-      @JsonKey(name: 'url') String url});
+      @JsonKey(name: 'url') String url,
+      @JsonKey(name: 'origin') LocationDto origin,
+      @JsonKey(name: 'location') LocationDto location});
+
+  $LocationDtoCopyWith<$Res> get origin;
+  $LocationDtoCopyWith<$Res> get location;
 }
 
 /// @nodoc
@@ -85,6 +94,8 @@ class _$CharacterDtoCopyWithImpl<$Res, $Val extends CharacterDto>
     Object? image = null,
     Object? created = null,
     Object? url = null,
+    Object? origin = null,
+    Object? location = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -123,7 +134,31 @@ class _$CharacterDtoCopyWithImpl<$Res, $Val extends CharacterDto>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      origin: null == origin
+          ? _value.origin
+          : origin // ignore: cast_nullable_to_non_nullable
+              as LocationDto,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as LocationDto,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LocationDtoCopyWith<$Res> get origin {
+    return $LocationDtoCopyWith<$Res>(_value.origin, (value) {
+      return _then(_value.copyWith(origin: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LocationDtoCopyWith<$Res> get location {
+    return $LocationDtoCopyWith<$Res>(_value.location, (value) {
+      return _then(_value.copyWith(location: value) as $Val);
+    });
   }
 }
 
@@ -144,7 +179,14 @@ abstract class _$$_CharacterDtoCopyWith<$Res>
       @JsonKey(name: 'gender') String gender,
       @JsonKey(name: 'image') String image,
       @JsonKey(name: 'created') String created,
-      @JsonKey(name: 'url') String url});
+      @JsonKey(name: 'url') String url,
+      @JsonKey(name: 'origin') LocationDto origin,
+      @JsonKey(name: 'location') LocationDto location});
+
+  @override
+  $LocationDtoCopyWith<$Res> get origin;
+  @override
+  $LocationDtoCopyWith<$Res> get location;
 }
 
 /// @nodoc
@@ -167,6 +209,8 @@ class __$$_CharacterDtoCopyWithImpl<$Res>
     Object? image = null,
     Object? created = null,
     Object? url = null,
+    Object? origin = null,
+    Object? location = null,
   }) {
     return _then(_$_CharacterDto(
       id: null == id
@@ -205,6 +249,14 @@ class __$$_CharacterDtoCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      origin: null == origin
+          ? _value.origin
+          : origin // ignore: cast_nullable_to_non_nullable
+              as LocationDto,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as LocationDto,
     ));
   }
 }
@@ -222,7 +274,9 @@ class _$_CharacterDto implements _CharacterDto {
       @JsonKey(name: 'gender') required this.gender,
       @JsonKey(name: 'image') required this.image,
       @JsonKey(name: 'created') required this.created,
-      @JsonKey(name: 'url') required this.url});
+      @JsonKey(name: 'url') required this.url,
+      @JsonKey(name: 'origin') required this.origin,
+      @JsonKey(name: 'location') required this.location});
 
   factory _$_CharacterDto.fromJson(Map<String, dynamic> json) =>
       _$$_CharacterDtoFromJson(json);
@@ -254,10 +308,16 @@ class _$_CharacterDto implements _CharacterDto {
   @override
   @JsonKey(name: 'url')
   final String url;
+  @override
+  @JsonKey(name: 'origin')
+  final LocationDto origin;
+  @override
+  @JsonKey(name: 'location')
+  final LocationDto location;
 
   @override
   String toString() {
-    return 'CharacterDto(id: $id, name: $name, status: $status, species: $species, type: $type, gender: $gender, image: $image, created: $created, url: $url)';
+    return 'CharacterDto(id: $id, name: $name, status: $status, species: $species, type: $type, gender: $gender, image: $image, created: $created, url: $url, origin: $origin, location: $location)';
   }
 
   @override
@@ -273,13 +333,16 @@ class _$_CharacterDto implements _CharacterDto {
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.created, created) || other.created == created) &&
-            (identical(other.url, url) || other.url == url));
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.origin, origin) || other.origin == origin) &&
+            (identical(other.location, location) ||
+                other.location == location));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, status, species, type,
-      gender, image, created, url);
+      gender, image, created, url, origin, location);
 
   @JsonKey(ignore: true)
   @override
@@ -297,15 +360,18 @@ class _$_CharacterDto implements _CharacterDto {
 
 abstract class _CharacterDto implements CharacterDto {
   const factory _CharacterDto(
-      {@JsonKey(name: 'id') required final int id,
-      @JsonKey(name: 'name') required final String name,
-      @JsonKey(name: 'status') required final String status,
-      @JsonKey(name: 'species') required final String species,
-      @JsonKey(name: 'type') required final String type,
-      @JsonKey(name: 'gender') required final String gender,
-      @JsonKey(name: 'image') required final String image,
-      @JsonKey(name: 'created') required final String created,
-      @JsonKey(name: 'url') required final String url}) = _$_CharacterDto;
+          {@JsonKey(name: 'id') required final int id,
+          @JsonKey(name: 'name') required final String name,
+          @JsonKey(name: 'status') required final String status,
+          @JsonKey(name: 'species') required final String species,
+          @JsonKey(name: 'type') required final String type,
+          @JsonKey(name: 'gender') required final String gender,
+          @JsonKey(name: 'image') required final String image,
+          @JsonKey(name: 'created') required final String created,
+          @JsonKey(name: 'url') required final String url,
+          @JsonKey(name: 'origin') required final LocationDto origin,
+          @JsonKey(name: 'location') required final LocationDto location}) =
+      _$_CharacterDto;
 
   factory _CharacterDto.fromJson(Map<String, dynamic> json) =
       _$_CharacterDto.fromJson;
@@ -337,6 +403,12 @@ abstract class _CharacterDto implements CharacterDto {
   @override
   @JsonKey(name: 'url')
   String get url;
+  @override
+  @JsonKey(name: 'origin')
+  LocationDto get origin;
+  @override
+  @JsonKey(name: 'location')
+  LocationDto get location;
   @override
   @JsonKey(ignore: true)
   _$$_CharacterDtoCopyWith<_$_CharacterDto> get copyWith =>

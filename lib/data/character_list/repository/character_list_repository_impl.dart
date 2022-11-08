@@ -2,6 +2,7 @@ import 'package:clean_architecture_demonstration/data/character_list/api_service
 import 'package:clean_architecture_demonstration/data/character_list/model/character_dto.dart';
 import 'package:clean_architecture_demonstration/domain/character_list/character_list_repository.dart';
 import 'package:clean_architecture_demonstration/domain/character_list/character_model.dart';
+import 'package:injectable/injectable.dart';
 
 class CharacterListRepositoryImpl extends CharacterListRepository {
   final CharacterListApiService _characterListApiService;

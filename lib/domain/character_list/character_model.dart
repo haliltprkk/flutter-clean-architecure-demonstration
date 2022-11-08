@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'character_model.freezed.dart';
 
 @freezed
@@ -13,5 +14,7 @@ class CharacterModel with _$CharacterModel {
     required String status,
     required String type,
     required String url,
+    required String origin,
+    required String location,
   }) = _CharacterModel;
 }

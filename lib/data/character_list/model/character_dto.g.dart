@@ -17,6 +17,8 @@ _$_CharacterDto _$$_CharacterDtoFromJson(Map<String, dynamic> json) =>
       image: json['image'] as String,
       created: json['created'] as String,
       url: json['url'] as String,
+      origin: LocationDto.fromJson(json['origin'] as Map<String, dynamic>),
+      location: LocationDto.fromJson(json['location'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_CharacterDtoToJson(_$_CharacterDto instance) =>
@@ -30,4 +32,6 @@ Map<String, dynamic> _$$_CharacterDtoToJson(_$_CharacterDto instance) =>
       'image': instance.image,
       'created': instance.created,
       'url': instance.url,
+      'origin': instance.origin,
+      'location': instance.location,
     };
