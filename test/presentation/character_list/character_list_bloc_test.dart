@@ -35,4 +35,17 @@ void main() {
             initialState.copyWith(
                 stateType: StateType.error, message: simpleException.handleError())
           ]);
+
+  blocTest<CharacterListBloc, CharacterListState>(
+      'bloc emits loading state than success state'
+      'on getCharacters() called request succeed and return list',
+      build: _build,
+      act: (bloc) async {
+        when(_characterListRepository.getCharacters()).thenAnswer((_) => Future.value([]));
+        await bloc.getCharacters();
+      },
+      expect: () => [
+            initialState.copyWith(stateType: StateType.loading),
+            initialState.copyWith(stateType: StateType.success)
+          ]);
 }
