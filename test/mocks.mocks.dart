@@ -64,17 +64,6 @@ class _FakeCharacterDto_2 extends _i1.SmartFake implements _i4.CharacterDto {
         );
 }
 
-class _Fake$CharacterModelCopyWith_3<$Res> extends _i1.SmartFake
-    implements _i3.$CharacterModelCopyWith<$Res> {
-  _Fake$CharacterModelCopyWith_3(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
 /// A class which mocks [CharacterListRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
@@ -170,86 +159,4 @@ class MockCharacterDetailApiService extends _i1.Mock
           ),
         )),
       ) as _i6.Future<_i4.CharacterDto>);
-}
-
-/// A class which mocks [CharacterModel].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockCharacterModel extends _i1.Mock implements _i3.CharacterModel {
-  MockCharacterModel() {
-    _i1.throwOnMissingStub(this);
-  }
-
-  @override
-  int get id => (super.noSuchMethod(
-        Invocation.getter(#id),
-        returnValue: 0,
-      ) as int);
-  @override
-  String get name => (super.noSuchMethod(
-        Invocation.getter(#name),
-        returnValue: '',
-      ) as String);
-  @override
-  String get created => (super.noSuchMethod(
-        Invocation.getter(#created),
-        returnValue: '',
-      ) as String);
-  @override
-  String get gender => (super.noSuchMethod(
-        Invocation.getter(#gender),
-        returnValue: '',
-      ) as String);
-  @override
-  String get image => (super.noSuchMethod(
-        Invocation.getter(#image),
-        returnValue: '',
-      ) as String);
-  @override
-  String get species => (super.noSuchMethod(
-        Invocation.getter(#species),
-        returnValue: '',
-      ) as String);
-  @override
-  String get status => (super.noSuchMethod(
-        Invocation.getter(#status),
-        returnValue: '',
-      ) as String);
-  @override
-  String get type => (super.noSuchMethod(
-        Invocation.getter(#type),
-        returnValue: '',
-      ) as String);
-  @override
-  String get url => (super.noSuchMethod(
-        Invocation.getter(#url),
-        returnValue: '',
-      ) as String);
-  @override
-  String get origin => (super.noSuchMethod(
-        Invocation.getter(#origin),
-        returnValue: '',
-      ) as String);
-  @override
-  String get location => (super.noSuchMethod(
-        Invocation.getter(#location),
-        returnValue: '',
-      ) as String);
-  @override
-  _i3.$CharacterModelCopyWith<_i3.CharacterModel> get copyWith =>
-      (super.noSuchMethod(
-        Invocation.getter(#copyWith),
-        returnValue: _Fake$CharacterModelCopyWith_3<_i3.CharacterModel>(
-          this,
-          Invocation.getter(#copyWith),
-        ),
-      ) as _i3.$CharacterModelCopyWith<_i3.CharacterModel>);
-  @override
-  String getStatusAndSpecies() => (super.noSuchMethod(
-        Invocation.method(
-          #getStatusAndSpecies,
-          [],
-        ),
-        returnValue: '',
-      ) as String);
 }

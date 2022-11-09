@@ -1,7 +1,6 @@
 import 'package:clean_architecture_demonstration/domain/character_list/character_model.dart';
 import 'package:clean_architecture_demonstration/presentation/utils/bloc_common.dart';
 import 'package:clean_architecture_demonstration/presentation/utils/error_handler.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -39,7 +38,7 @@ class CharacterDetailBloc extends Cubit<CharacterDetailState> {
     try {
       final response = await _characterDetailRepository.getCharacterById(characterId);
       emit(state.copyWith(stateType: StateType.success, character: response));
-    } catch (e) {
+    } on Exception catch (e) {
       emit(state.copyWith(stateType: StateType.error, message: e.handleError()));
     }
   }

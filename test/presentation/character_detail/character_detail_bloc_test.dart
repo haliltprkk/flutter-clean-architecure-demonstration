@@ -5,14 +5,14 @@ import 'package:clean_architecture_demonstration/presentation/utils/error_handle
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
+import '../../mock_data.dart';
 import '../../mocks.mocks.dart';
 
 late MockCharacterDetailRepository _characterDetailRepository;
 
 main() {
   const initialState = CharacterDetailState(stateType: StateType.initial, character: null);
-  final MockCharacterModel mockCharacterModel = MockCharacterModel();
-  const ID = 12;
+  const ID = 1;
   const TITLE = "Rick";
   final simpleException = Exception("");
   CharacterDetailBloc _build() => CharacterDetailBloc(_characterDetailRepository);
@@ -27,23 +27,27 @@ main() {
   });
 
   test(
-      'when init() method called'
+      'when init() method called '
       'getCharacterDetail() method called on _characterDetailRepository with given id', () {
     final bloc = _build();
+    when(_characterDetailRepository.getCharacterById(ID))
+        .thenAnswer((_) => Future.value(getMockCharacterModel()));
     bloc.init(ID, TITLE);
     expect(verify(_characterDetailRepository.getCharacterById(captureAny)).captured.single, ID);
   });
 
   test(
-      'when getCharacterTitle() called'
+      'when getCharacterTitle() called '
       'returns given title by init()', () {
     final bloc = _build();
+    when(_characterDetailRepository.getCharacterById(ID))
+        .thenAnswer((_) => Future.value(getMockCharacterModel()));
     bloc.init(ID, TITLE);
     expect(bloc.getCharacterTitle(), TITLE);
   });
 
   blocTest<CharacterDetailBloc, CharacterDetailState>(
-    'when _characterDetailRepository returns error'
+    'when _characterDetailRepository returns error '
     'state error is emitted',
     build: () => _build(),
     act: (bloc) {
@@ -58,17 +62,17 @@ main() {
   );
 
   blocTest<CharacterDetailBloc, CharacterDetailState>(
-    'when _characterDetailRepository returns success'
+    'when _characterDetailRepository returns success '
     'state success is emitted',
     build: () => _build(),
     act: (bloc) {
       when(_characterDetailRepository.getCharacterById(ID))
-          .thenAnswer((_) => Future.value(mockCharacterModel));
+          .thenAnswer((_) => Future.value(getMockCharacterModel()));
       bloc.init(ID, TITLE);
     },
     expect: () => <CharacterDetailState>[
       initialState.copyWith(stateType: StateType.loading),
-      initialState.copyWith(stateType: StateType.success, character: mockCharacterModel)
+      initialState.copyWith(stateType: StateType.success, character: getMockCharacterModel())
     ],
   );
 }

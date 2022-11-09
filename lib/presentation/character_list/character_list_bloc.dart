@@ -1,6 +1,5 @@
 import 'package:clean_architecture_demonstration/domain/character_list/character_list_repository.dart';
 import 'package:clean_architecture_demonstration/presentation/utils/error_handler.dart';
-import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../domain/character_list/character_model.dart';
 import '../utils/bloc_common.dart';
@@ -30,7 +29,7 @@ class CharacterListBloc extends Cubit<CharacterListState> {
     try {
       final characterList = await _characterListRepository.getCharacters();
       emit(state.copyWith(stateType: StateType.success, characterList: characterList));
-    } catch (e) {
+    } on Exception catch (e) {
       emit(state.copyWith(stateType: StateType.error, message: e.handleError()));
     }
   }

@@ -13,7 +13,7 @@ main() {
   setUp(() => _characterListApiService = MockCharacterListApiService());
 
   test(
-      'when getCharacterList() called on A CharacterListRepository'
+      'when getCharacterList() called on A CharacterListRepository '
       'getCharacterList() called on CharacterListApiService', () async {
     when(_characterListApiService.getCharacters())
         .thenAnswer((realInvocation) => Future.value(getMockCharacterListDto()));

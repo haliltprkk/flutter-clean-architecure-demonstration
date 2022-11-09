@@ -15,7 +15,7 @@ main() {
   setUp(() => _characterDetailApiService = MockCharacterDetailApiService());
 
   test(
-      'when getCharacterDetail(id) method is called on CharacterDetailRepository'
+      'when getCharacterDetail(id) method is called on CharacterDetailRepository '
       'getCharacterDetail(id) method is called on CharacterDetailApiService with correct data',
       () async {
     when(_characterDetailApiService.getCharacter(any))

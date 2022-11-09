@@ -1,7 +1,7 @@
 import 'package:clean_architecture_demonstration/data/common/error_dto.dart';
 import 'package:dio/dio.dart';
 
-extension ErrorHandler on Object {
+extension ErrorHandler on Exception {
   String handleError() {
     try {
       if (this is DioError) {

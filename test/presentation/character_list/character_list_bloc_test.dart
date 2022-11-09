@@ -24,7 +24,7 @@ void main() {
   });
 
   blocTest<CharacterListBloc, CharacterListState>(
-      'when getCharacters() called and returned error'
+      'when getCharacters() called and returned error '
       'state loading is emitted and  state error is emitted',
       build: _build,
       act: (bloc) async {
@@ -39,7 +39,7 @@ void main() {
           ]);
 
   blocTest<CharacterListBloc, CharacterListState>(
-      'when getCharacters() called and returned success'
+      'when getCharacters() called and returned success '
       'state loading is emitted and  state success is emitted',
       build: _build,
       act: (bloc) async {
@@ -50,4 +50,20 @@ void main() {
             initialState.copyWith(stateType: StateType.loading),
             initialState.copyWith(stateType: StateType.success)
           ]);
+
+  blocTest<CharacterListBloc, CharacterListState>(
+    'when refreshList() called '
+    'state initial is emitted than getCharacters() called and returned success',
+    build: () => _build(),
+    act: (bloc) {
+      when(_characterListRepository.getCharacters()).thenAnswer((_) => Future.value([]));
+      bloc.refreshList();
+      verify(bloc.getCharacters());
+    },
+    expect: () => <CharacterListState>[
+      initialState.copyWith(stateType: StateType.initial, characterList: []),
+      initialState.copyWith(stateType: StateType.loading),
+      initialState.copyWith(stateType: StateType.success)
+    ],
+  );
 }
