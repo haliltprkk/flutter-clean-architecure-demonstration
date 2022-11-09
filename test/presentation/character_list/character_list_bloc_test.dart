@@ -8,13 +8,15 @@ import 'package:mockito/mockito.dart';
 import '../../mocks.mocks.dart';
 
 late MockCharacterListRepository _characterListRepository;
+final simpleException = Exception("");
 
 void main() {
   const initialState = CharacterListState(stateType: StateType.initial, characterList: []);
   CharacterListBloc _build() => CharacterListBloc(_characterListRepository);
-  var simpleException = Exception("");
 
-  setUp(() => _characterListRepository = MockCharacterListRepository());
+  setUp(() {
+    _characterListRepository = MockCharacterListRepository();
+  });
 
   test('bloc should have initial state as [StateType.initial]', () {
     final bloc = _build();
@@ -22,8 +24,8 @@ void main() {
   });
 
   blocTest<CharacterListBloc, CharacterListState>(
-      'bloc emits loading state than error state'
-      'on getCharacters() called request failed and error thrown',
+      'when getCharacters() called and returned error'
+      'state loading is emitted and  state error is emitted',
       build: _build,
       act: (bloc) async {
         when(_characterListRepository.getCharacters())
@@ -37,8 +39,8 @@ void main() {
           ]);
 
   blocTest<CharacterListBloc, CharacterListState>(
-      'bloc emits loading state than success state'
-      'on getCharacters() called request succeed and return list',
+      'when getCharacters() called and returned success'
+      'state loading is emitted and  state success is emitted',
       build: _build,
       act: (bloc) async {
         when(_characterListRepository.getCharacters()).thenAnswer((_) => Future.value([]));
