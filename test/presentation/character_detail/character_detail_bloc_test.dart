@@ -8,19 +8,17 @@ import 'package:mockito/mockito.dart';
 import '../../mocks.mocks.dart';
 
 late MockCharacterDetailRepository _characterDetailRepository;
-late MockCharacterModel mockCharacterModel;
-const ID = 12;
-const TITLE = "Rick";
-final simpleException = Exception("");
 
 main() {
   const initialState = CharacterDetailState(stateType: StateType.initial, character: null);
-
+  final MockCharacterModel mockCharacterModel = MockCharacterModel();
+  const ID = 12;
+  const TITLE = "Rick";
+  final simpleException = Exception("");
   CharacterDetailBloc _build() => CharacterDetailBloc(_characterDetailRepository);
 
   setUp(() {
     _characterDetailRepository = MockCharacterDetailRepository();
-    mockCharacterModel = MockCharacterModel();
   });
 
   test('bloc should have initial state as [StateType.initial]', () {

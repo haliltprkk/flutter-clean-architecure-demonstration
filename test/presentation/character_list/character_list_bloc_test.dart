@@ -8,12 +8,11 @@ import 'package:mockito/mockito.dart';
 import '../../mocks.mocks.dart';
 
 late MockCharacterListRepository _characterListRepository;
-final simpleException = Exception("");
 
 void main() {
   const initialState = CharacterListState(stateType: StateType.initial, characterList: []);
+  final simpleException = Exception("");
   CharacterListBloc _build() => CharacterListBloc(_characterListRepository);
-  var simpleException = Exception("");
 
   setUp(() {
     _characterListRepository = MockCharacterListRepository();
