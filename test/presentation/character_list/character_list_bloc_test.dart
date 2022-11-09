@@ -13,6 +13,7 @@ final simpleException = Exception("");
 void main() {
   const initialState = CharacterListState(stateType: StateType.initial, characterList: []);
   CharacterListBloc _build() => CharacterListBloc(_characterListRepository);
+  var simpleException = Exception("");
 
   setUp(() {
     _characterListRepository = MockCharacterListRepository();
