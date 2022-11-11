@@ -1,6 +1,17 @@
-# clean_architecture_demonstration
+# Clean Architecture Demonstration
 
-Simple clean architecture demonstration app
+Simple two-pages flutter application that demonstrates the clean architecture with some technologies and unit testing.
+
+## Tech Stack
+- [freezed](https://pub.dev/packages/freezed)
+- [flutter_bloc](https://pub.dev/packages/flutter_bloc)
+- [dio](https://pub.dev/packages/dio)
+- [get_it](https://pub.dev/packages/get_it)
+- [json_annotation](https://pub.dev/packages/json_annotation)
+- [injectable](https://pub.dev/packages/injectable)
+- [retrofit](https://pub.dev/packages/retrofit)
+- [build_runner](https://pub.dev/packages/build_runner)
+- [mockito](https://pub.dev/packages/mockito)
 
 ## Getting Started
 
