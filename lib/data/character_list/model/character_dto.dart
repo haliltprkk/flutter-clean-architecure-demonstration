@@ -8,8 +8,8 @@ part 'character_dto.freezed.dart';
 part 'character_dto.g.dart';
 
 @freezed
+@JsonSerializable()
 class CharacterDto with _$CharacterDto {
-  @JsonSerializable()
   const factory CharacterDto({
     required int id,
     required String name,

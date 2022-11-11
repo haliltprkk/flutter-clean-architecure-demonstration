@@ -5,8 +5,8 @@ part 'info_dto.freezed.dart';
 part 'info_dto.g.dart';
 
 @freezed
+@JsonSerializable()
 class InfoDto with _$InfoDto {
-  @JsonSerializable()
   const factory InfoDto({
     required int count,
     required int pages,
