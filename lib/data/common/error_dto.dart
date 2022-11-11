@@ -8,7 +8,7 @@ part 'error_dto.g.dart';
 @freezed
 class ErrorDto with _$ErrorDto {
   const factory ErrorDto({
-    @JsonKey(name: 'error') String? error,
+    String? error,
   }) = _ErrorDto;
 
   factory ErrorDto.fromJson(Map<String, dynamic> json) => _$ErrorDtoFromJson(json);

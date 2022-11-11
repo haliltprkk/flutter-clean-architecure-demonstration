@@ -11,17 +11,17 @@ part 'character_dto.g.dart';
 class CharacterDto with _$CharacterDto {
   @JsonSerializable()
   const factory CharacterDto({
-    @JsonKey(name: 'id') required int id,
-    @JsonKey(name: 'name') required String name,
-    @JsonKey(name: 'status') required String status,
-    @JsonKey(name: 'species') required String species,
-    @JsonKey(name: 'type') required String type,
-    @JsonKey(name: 'gender') required String gender,
-    @JsonKey(name: 'image') required String image,
-    @JsonKey(name: 'created') required String created,
-    @JsonKey(name: 'url') required String url,
-    @JsonKey(name: 'origin') required LocationDto origin,
-    @JsonKey(name: 'location') required LocationDto location,
+    required int id,
+    required String name,
+    required String status,
+    required String species,
+    required String type,
+    required String gender,
+    required String image,
+    required String created,
+    required String url,
+    required LocationDto origin,
+    required LocationDto location,
   }) = _CharacterDto;
 
   factory CharacterDto.fromJson(Map<String, dynamic> json) => _$CharacterDtoFromJson(json);

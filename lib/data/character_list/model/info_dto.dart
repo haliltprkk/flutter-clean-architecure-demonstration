@@ -8,9 +8,9 @@ part 'info_dto.g.dart';
 class InfoDto with _$InfoDto {
   @JsonSerializable()
   const factory InfoDto({
-    @JsonKey(name: 'count') required int count,
-    @JsonKey(name: 'pages') required int pages,
-    @JsonKey(name: 'next') required String next,
+    required int count,
+    required int pages,
+    required String next,
   }) = _InfoDto;
 
   factory InfoDto.fromJson(Map<String, dynamic> json) => _$InfoDtoFromJson(json);
