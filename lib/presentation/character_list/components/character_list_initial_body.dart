@@ -6,12 +6,13 @@ class CharacterListInitialBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: Center(
-      child: Image.asset(
-        "assets/ic_rick.png",
-        width: 120,
-        height: 120,
+      child: Center(
+        child: Image.asset(
+          "assets/ic_rick.png",
+          width: 120,
+          height: 120,
+        ),
       ),
-    ));
+    );
   }
 }

@@ -15,35 +15,32 @@ class CharacterListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildUi(),
-    );
-  }
-
-  _buildUi() {
-    return BlocProvider(
+      body: BlocProvider(
         create: (BuildContext context) => inject<CharacterListBloc>()..getCharacters(),
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [CustomAppBar(title: "Character List"), _buildBody()],
+            children: [
+              CustomAppBar(title: "Character List"),
+              BlocBuilder<CharacterListBloc, CharacterListState>(
+                builder: (BuildContext context, CharacterListState state) {
+                  ScaffoldMessenger.of(context).clearSnackBars();
+                  switch (state.stateType) {
+                    case StateType.initial:
+                      return CharacterListInitialBody();
+                    case StateType.loading:
+                      return LoadingBody();
+                    case StateType.success:
+                      return CharacterListSuccessBody();
+                    case StateType.error:
+                      return EmptyBody(state.message);
+                  }
+                },
+              ),
+            ],
           ),
-        ));
-  }
-
-  _buildBody() {
-    return BlocBuilder<CharacterListBloc, CharacterListState>(
-        builder: (BuildContext context, CharacterListState state) {
-      ScaffoldMessenger.of(context).clearSnackBars();
-      switch (state.stateType) {
-        case StateType.initial:
-          return CharacterListInitialBody();
-        case StateType.loading:
-          return LoadingBody();
-        case StateType.success:
-          return CharacterListSuccessBody();
-        case StateType.error:
-          return EmptyBody(state.message);
-      }
-    });
+        ),
+      ),
+    );
   }
 }

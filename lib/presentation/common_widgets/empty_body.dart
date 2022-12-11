@@ -8,11 +8,12 @@ class EmptyBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: Center(
-      child: Text(
-        title,
-        style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w400),
+      child: Center(
+        child: Text(
+          title,
+          style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w400),
+        ),
       ),
-    ));
+    );
   }
 }

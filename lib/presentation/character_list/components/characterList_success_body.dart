@@ -10,24 +10,23 @@ class CharacterListSuccessBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: RefreshIndicator(
-      onRefresh: () => context.read<CharacterListBloc>().refreshList(),
-      child: ListView.separated(
-        padding: EdgeInsets.symmetric(vertical: 12),
-        shrinkWrap: true,
-        scrollDirection: Axis.vertical,
-        itemCount: context.read<CharacterListBloc>().state.characterList.length,
-        physics: BouncingScrollPhysics(),
-        itemBuilder: (context, index) {
-          var list = context.read<CharacterListBloc>().state.characterList;
-          return CharacterListItem(list[index]);
-        },
-        separatorBuilder: (BuildContext context, int index) {
-          return SizedBox(
+      child: RefreshIndicator(
+        onRefresh: () => context.read<CharacterListBloc>().refreshList(),
+        child: ListView.separated(
+          padding: EdgeInsets.symmetric(vertical: 12),
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          itemCount: context.read<CharacterListBloc>().state.characterList.length,
+          physics: BouncingScrollPhysics(),
+          itemBuilder: (context, index) {
+            var list = context.read<CharacterListBloc>().state.characterList;
+            return CharacterListItem(list[index]);
+          },
+          separatorBuilder: (BuildContext context, int index) => SizedBox(
             height: 12,
-          );
-        },
+          ),
+        ),
       ),
-    ));
+    );
   }
 }

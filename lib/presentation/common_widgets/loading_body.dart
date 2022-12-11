@@ -6,10 +6,11 @@ class LoadingBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: Center(
-      child: CircularProgressIndicator(
-        color: Colors.white,
+      child: Center(
+        child: CircularProgressIndicator(
+          color: Colors.white,
+        ),
       ),
-    ));
+    );
   }
 }

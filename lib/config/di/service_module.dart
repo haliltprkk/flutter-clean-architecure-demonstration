@@ -7,4 +7,5 @@ import '../../data/services_impl/default_orientation_service.dart';
 abstract class ServiceModule {
   @LazySingleton(as: OrientationService)
   DefaultOrientationService get defaultOrientationService;
+
 }

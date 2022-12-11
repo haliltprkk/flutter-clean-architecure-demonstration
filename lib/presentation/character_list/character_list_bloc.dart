@@ -23,9 +23,7 @@ class CharacterListBloc extends Cubit<CharacterListState> {
       : super(const CharacterListState(characterList: [], stateType: StateType.initial));
 
   Future<void> getCharacters() async {
-    emit(state.copyWith(
-      stateType: StateType.loading,
-    ));
+    emit(state.copyWith(stateType: StateType.loading));
     try {
       final characterList = await _characterListRepository.getCharacters();
       emit(state.copyWith(stateType: StateType.success, characterList: characterList));

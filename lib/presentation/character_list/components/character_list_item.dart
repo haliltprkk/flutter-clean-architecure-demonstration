@@ -1,9 +1,7 @@
 import 'package:clean_architecture_demonstration/domain/character_list/character_model.dart';
-import 'package:clean_architecture_demonstration/presentation/character_detail/character_detail_bloc.dart';
-import 'package:clean_architecture_demonstration/presentation/character_detail/character_detail_page.dart';
+import 'package:clean_architecture_demonstration/presentation/utils/app_navigator.dart';
 import 'package:clean_architecture_demonstration/presentation/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../config/di/di.dart';
 import '../../utils/dimens.dart';
@@ -11,22 +9,14 @@ import '../../utils/dimens.dart';
 class CharacterListItem extends StatelessWidget {
   final CharacterModel characterModel;
 
-  const CharacterListItem(this.characterModel, {Key? key}) : super(key: key);
+  CharacterListItem(this.characterModel, {Key? key}) : super(key: key);
+  final navigator = inject<AppNavigator>();
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) {
-            return BlocProvider<CharacterDetailBloc>(
-              create: (BuildContext context) =>
-                  inject<CharacterDetailBloc>()..init(characterModel.id, characterModel.name),
-              child: const CharacterDetailPage(),
-            );
-          },
-        ),
-      ),
+      onTap: () => navigator.pushNamed(context,
+          route: AppNavigator.characterDetailPath, data: [characterModel.id, characterModel.name]),
       child: Container(
         decoration:
             BoxDecoration(color: CustomColors.tuna, borderRadius: BorderRadius.circular(10)),
